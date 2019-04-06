@@ -1,0 +1,686 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Konfigurator opraw LED firmy ATM lighting</title>
+	<!--
+<link rel="stylesheet" href="moje_style.css">
+-->
+	<style>
+		.ukryte
+{
+	visibility: hidden;
+}
+.pokazane
+{
+	visibility: visible;
+}
+	</style>
+</head>
+
+<body>
+	<form name="formularz">
+		<label class="col-sm-5 form-control-label">Dział opraw</label>
+		<div class="col-sm-7">
+			<select name="dzial" id="wybor_dzialu_oprawy" onchange="Selekcja_działu_opraw(this.value)">
+				<option value="default1">Proszę wybrać dział</option>
+				<option value="EX">Oprawy przeciwwybuchowe</option>
+				<option value="VANDAL">Oprawy wandaloodporne</option>
+				<option value="PRISON">Oprawy do więzień</option>
+				<option value="FACTORY">Oprawy do przemysłu i hal produkcyjnych</option>
+				<option value="FOOD">Oprawy do przemysłu spożywczego</option>
+			</select>
+		</div>
+		<div class="ukryte" id="1-typ_oprawy">
+			<label class="col-sm-5 form-control-label">Typ oprawy</label>
+				<div class="col-sm-7">
+					<select name="typ" id="wybor_typu_oprawy" onchange="Selekcja_typu_opraw(this.value)">
+						<option value="default2">Wybierz typ oprawy</option>
+						<option value="Napowierzchniowa" disabled>Napowierzchniowa</option>
+						<option value="Narozna" disabled>Narożna</option>
+						<option value="Wpuszczana" disabled>Wpuszczana</option>
+						<option value="Naswietlacz" disabled>Naświetlacz</option>
+						<option value="Bulkhead" disabled>Bulkhead</option>
+						<option value="Rurowa" disabled>Rurowa</option>
+						<option value="Agresywne" disabled>Do agresywnych środowisk</option>
+						<option value="Amoniak" disabled>Do amoniaku</option>
+						<option value="Temp" disabled>Do ekstremalnych temperatur</option>
+					</select>
+				</div>
+			</div>
+		<div class="ukryte" id="2-oprawa">
+		<label class="col-sm-5 form-control-label">Wybór konkretnej oprawy</label>
+			<div class="col-sm-7">
+				<select name="oprawa"  id="wybor_konkretnej_oprawy" onchange="Selekcja_konkretnych_opraw(this.value)">
+					<option value="default3">Proszę wybrać</option>
+					<option value="EXL210LED" disabled>EXL210LED</option>
+					<option value="EXL310LED" disabled>EXL310LED</option>
+					<option value="EXL380LED" disabled>EXL380LED</option>
+					<option value="EXL390LED" disabled>EXL390LED</option>
+					<option value="EXF200LED" disabled>EXF200LED</option>
+					<option value="EXF250LED" disabled>EXF250LED</option>
+					<option value="EXF300LED" disabled>EXF300LED</option>
+					<option value="FLX310LED" disabled>FLX310LED</option>
+					<option value="PLFMLED" disabled>PLFMLED</option>
+					<option value="PLFSLED" disabled>PLFSLED</option>
+					<option value="040324LED" disabled>0403.24LED</option>
+					<option value="INV320LED" disabled>INV320LED</option>
+					<option value="INV320LEDSF" disabled>INV320LED-..-SF</option>
+					<option value="INV320LEDRC" disabled>INV320LED-..-RC</option>
+					<option value="INV360LED" disabled>INV360LED</option>
+					<option value="INS230" disabled>INS230</option>
+					<option value="INS340" disabled>INS340</option>
+					<option value="INP320LED" disabled>INP320LED</option>
+					<option value="INP320LEDSF" disabled>INP320LED-..-SF</option>
+					<option value="INP320LEDRC" disabled>INP320LED-..-RC</option>
+					<option value="INP360LED" disabled>INP360LED</option>
+					<option value="HPL425LED" disabled>HPL425LED</option>
+					<option value="INS340LED" disabled>INS340LED</option>
+					<option value="INS370LED" disabled>INS370LED</option>
+					<option value="HPL440LED" disabled>HPL440LED</option>
+					<option value="INX340LED" disabled>INX340LED</option>
+					<option value="INX230LED" disabled>INX230LED</option>
+					<option value="INS230LED" disabled>INS230LED</option>
+					<option value="HPL430LED" disabled>HPL430LED</option>
+					<option value="INS395LED" disabled>INS395LED</option>
+					<option value="INS350LED" disabled>INS350LED</option>
+					<option value="INS250LED" disabled>INS250LED</option>
+					<option value="INS270LED" disabled>INS270LED</option>
+					<option value="INS310LED" disabled>INS310LED</option>
+					<option value="INS360LED" disabled>INS360LED</option>
+					<option value="INS242LED" disabled>INS242LED</option>
+				</select>
+			</div>	
+		</div>
+		<div class="ukryte" id="3-strumien">
+			<label class="col-sm-5 form-control-label">Strumien oprawy</label>
+				<div class="col-sm-7">
+					<select name="strumien" id="wybor_strumienia" onchange="Selekcja_strumienia(this.value)">
+						<option value="default4">Wybierz strumien oprawy</option>
+						<option value="0600-E2" disabled>2482 lm w wersji o długości ok 600mm</option>
+						<option value="0600-E4" disabled>4631 lm w wersji o długości ok 600mm</option>
+						<option value="1200-E4" disabled>5550 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E8" disabled>8512 lm w wersji o długości ok 1200mm</option>
+						<option value="1500-E6" disabled>7031 lm  w wersji o długości ok 1500mm</option>
+						<option value="0600-E2" disabled>2775 lm w wersji o długości ok 600mm</option>
+						<option value="0600-E4" disabled>4715 lm w wersji o długości ok 600mm</option>
+						<option value="1200-E4" disabled>5390 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E8" disabled>7675 lm w wersji o długości ok 1200mm</option>
+						<option value="10000" disabled>Około 10000 lm</option>
+						<option value="15000" disabled>Około 15000 lm</option>
+						<option value="20000" disabled>Około 20000 lm</option>
+					</select>
+				</div>
+			</div>
+			<div class="ukryte" id="4-obudowa">
+			<label class="col-sm-5 form-control-label">Materiał Obudowy</label>
+				<div class="col-sm-7">
+					<select name="obudowa" id="wybor_obudowy" onchange="Selekcja_materialu_obudowy(this.value)">
+						<option value="default5">Wybierz materiał obudowy</option>
+						<option value="GS" disabled>Stal ocynkowana malowana proszkowo</option>
+						<option value="NIRO" disabled>Stal nierdzewna</option>
+						<option value="PC" disabled>Poliwęglan</option>
+						<option value="GRP" disabled>GRP</option>
+						<option value="BRS" disabled>Stal nierdzewna szczotkowana</option>
+					</select>
+				</div>
+			</div>
+			<div class="ukryte" id="5-klosz">
+			<label class="col-sm-5 form-control-label">Materiał Klosza</label>
+				<div class="col-sm-7">
+					<select name="klosz" id="wybor_klosza" onchange="Selekcja_materialu_klosza(this.value)">
+							<option value="default6">Wybierz materiał klosza</option>
+							<option value="GL" disabled>Szyba hartowana</option>
+							<option value="SGL" disabled>Szyba hartowana safety-glass</option>
+							<option value="PC" disabled>Klosz z poliwęglanu</option>
+							<option value="PM" disabled>Klosz z poliwęglanu PM</option>
+							<option value="PT" disabled>Klosz z poliwęglanu PT</option>
+						</select>
+				</div>
+			</div>
+			<div class="ukryte" id="6-material-dlawnice">
+			<label class="col-sm-5 form-control-label">Materiał dławnic</label>
+				<div class="col-sm-7">
+					<select name="material-dlawnic" id="wybor_materialu_dlawnic" onchange="Selekcja_materialu_dlawnic(this.value)">
+							<option value="default7">Wybierz materiał dławnic</option>
+							<option value="PCI" disabled>Przepusty plastikowe</option>
+							<option value="P" disabled>Dławnice plastikowe</option>
+							<option value="M" disabled>Dławnice metalowe</option>
+						</select>
+				</div>
+			</div>
+			<div class="ukryte" id="7-wielkosc-dlawnice">
+			<label class="col-sm-5 form-control-label">Wielkość dławnic</label>
+				<div class="col-sm-7">
+					<select name="wielkosc-dlawnic" id="wybor_wielkosci_dlawnic" onchange="Selekcja_wielkosci_dlawnic(this.value)">
+							<option value="default8">Wybierz wielkość dławnic</option>
+							<option value="20">Dławnice o średnicy 20mm</option>
+							<option value="25">Dławnice o średnicy 25mm</option>
+						</select>
+				</div>
+			</div>
+			<div class="ukryte" id="8-awaryjna">
+			<label class="col-sm-5 form-control-label">Wersje awaryjne / dali</label>
+				<div class="col-sm-7">
+					<select name="wersje_awaryjne" id="wybor_awaryjna" onchange="Selekcja_awaryjnosci(this.value); Selekcja_zasilania_oprawy(this.value)">
+							<option value="default9">Wybierz rodzaj pracy awaryjnej /dali</option>
+							<option value="brak">Oprawa standardowa - bez układu awaryjnego</option>
+							<option value="A3" disabled>Wersja A3 - praca awaryjna 3 godzinna</option>
+							<option value="A3S" disabled>Wersja A3S - praca awaryjna 1 godzinna do ujemnych temp.</option>
+							<option value="ZB" disabled>Wersja ZB - do pracy z centralną baterią</option>
+							<option value="ZBS" disabled>Wersja ZBS - do pracy z centralną baterią firmy ES-SYSTEM</option>
+							<option value="ZBH" disabled>Wersja ZBH - do pracy z centralną baterią firmy HYBRYD</option>
+							<option value="ZBT" disabled>Wersja ZBT - do pracy z centralną baterią firmy TM-TECHNOLOGIE</option>
+							<option value="ZBC" disabled>Wersja ZBC - do pracy z centralną baterią firmy CEAG</option>
+							<option value="ZBD" disabled>Wersja ZBD - do pracy z centralną baterią firmy CEAG</option>
+							<option value="ZBR" disabled>Wersja ZBR - do pracy z centralną baterią firmy RP TECHNIK</option>
+							<option value="ZBM" disabled>Wersja ZBM - do pracy z centralną baterią firmy AandM MICHALOWSKI</option>
+							<option value="DA" disabled>Wersja DA - do pracy DALI</option>
+						</select>
+				</div>
+			</div>
+			<div class="ukryte" id="9-przelot">
+			<label class="col-sm-5 form-control-label">Przelot</label>
+				<div class="col-sm-7">
+					<select name="przelot" id="wybor_przelot" onchange="Selekcja_przelotu(this.value)">
+							<option value="default10">Wybierz czy oprawa ma być wykonana w wersji przelotowej</option>
+							<option value="TAK">TAK</option>
+							<option value="NIE">NIE</option>
+						</select>
+				</div>
+			</div>
+			<div class="ukryte" id="10-uklad-dlawnic">
+			<label class="col-sm-5 form-control-label">Wybór układu dławnic</label>
+				<div class="col-sm-7">
+					<select name="uklad-dlawnic" id="wybor_ukladu_dlawnic" onchange="Selekcja_ukladu_dlawnic(this.value)">
+							<option value="default10">Wybierz uklad dlawnic</option>
+							<option value="10">Jedna dławnica po jednej stronie</option>
+							<option value="11" disabled>Jedna dławnica po dwóch stronach</option>
+							<option value="20" disabled>Dwie dławnica po jednej stronie</option>
+							<option value="22" disabled>Dwie dławnica po dwóch stronach</option>
+						</select>
+				</div>
+			</div>
+	</form>
+	<button onclick="przeslij()">Oblicz</button>
+	<button onclick="restart()">Restart</button>
+	<div id="wynik"></div>
+	<div id="klucz"></div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+	var zasilanie_oprawy;
+	var okablowanie;
+	var uklad_dlawnic;
+	var wersje_awaryjne;
+	var wielkosc_dlawnic;
+	var material_dlawnic;
+	var klosz_oprawy;
+	var obudowa_oprawy;
+	var strumien_oprawy;
+	var nazwa_oprawy;
+	var typ_oprawy;
+	var dzial_opraw;
+	
+	$('#panelPrecios [data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'bottom',
+    html: true
+});
+function Selekcja_działu_opraw(wybrano)
+	{
+	dzial_opraw = document.forms.formularz.elements["dzial"].value;
+	if(wybrano == 'EX')
+		{
+			var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+			typ_oprawy1.className = "pokazane";
+			var lista_typow_opraw = document.getElementById("wybor_typu_oprawy");
+			//Show_all_lista_typow_opraw();
+			lista_typow_opraw.options[1].disabled =false;
+			lista_typow_opraw.options[3].disabled =false;
+			lista_typow_opraw.options[4].disabled =false;
+			lista_typow_opraw.options[5].disabled =false;
+			//lista_typow_opraw.options[1].style.visibility="hidden";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			for(i=1; i < 12; i++)
+			{
+				lista_konkretnej_oprawy.options[i].disabled = false;
+			}
+		}
+	if(wybrano == 'VANDAL')
+		{
+			var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+			typ_oprawy1.className = "pokazane";
+			var lista_typow_opraw = document.getElementById("wybor_typu_oprawy");
+			//Show_all_lista_typow_opraw();
+			lista_typow_opraw.options[1].disabled =false;
+			lista_typow_opraw.options[2].disabled =false;
+			lista_typow_opraw.options[3].disabled =false;
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			for(i=12; i < 18; i++)
+			{
+				lista_konkretnej_oprawy.options[i].disabled = false;
+			}
+		}
+	if(wybrano == 'PRISON')
+		{
+			var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+			typ_oprawy1.className = "pokazane";
+			var lista_typow_opraw = document.getElementById("wybor_typu_oprawy");
+			//Show_all_lista_typow_opraw();
+			lista_typow_opraw.options[1].disabled =false;
+			lista_typow_opraw.options[2].disabled =false;
+			lista_typow_opraw.options[3].disabled =false;
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			for(i=18; i < 22; i++)
+			{
+				lista_konkretnej_oprawy.options[i].disabled = false;
+			}
+		}
+	if(wybrano == 'FACTORY')
+		{
+			var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+			typ_oprawy1.className = "pokazane";
+			var lista_typow_opraw = document.getElementById("wybor_typu_oprawy");
+			//Show_all_lista_typow_opraw();
+			lista_typow_opraw.options[1].disabled =false;
+			lista_typow_opraw.options[4].disabled =false;
+			lista_typow_opraw.options[7].disabled =false;
+			lista_typow_opraw.options[8].disabled =false;
+			lista_typow_opraw.options[9].disabled =false;
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			for(i=22; i < 31; i++)
+			{
+				lista_konkretnej_oprawy.options[i].disabled = false;
+			}
+			lista_konkretnej_oprawy.options[36].disabled = false;
+		}
+	if(wybrano == 'FOOD')
+		{
+			var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+			typ_oprawy1.className = "pokazane";
+			var lista_typow_opraw = document.getElementById("wybor_typu_oprawy");
+			//Show_all_lista_typow_opraw();
+			lista_typow_opraw.options[6].disabled =false;
+			lista_typow_opraw.options[7].disabled =false;
+			lista_typow_opraw.options[8].disabled =false;
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			for(i=31; i <= 35; i++)
+			{
+				lista_konkretnej_oprawy.options[i].disabled = false;
+			}
+		}
+	/*if(wybrano =='default1')
+	{
+		var typ_oprawy1 = document.getElementById("1-typ_oprawy");
+		typ_oprawy1.className = "ukryte";
+		//Show_all_lista_typow_opraw();
+	}
+	*/
+		
+		//return dzial_opraw;
+	}
+	function Selekcja_typu_opraw(wybrano)
+	{
+		var disable_dzial = document.getElementById("wybor_dzialu_oprawy");
+		disable_dzial.setAttribute("disabled", true);
+		
+		typ_opraw = document.forms.formularz.elements["typ"].value;
+		if(wybrano == 'Napowierzchniowa')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			lista_konkretnej_oprawy.options[3].disabled = true;
+			lista_konkretnej_oprawy.options[4].disabled = true;
+			lista_konkretnej_oprawy.options[8].disabled = true;
+			lista_konkretnej_oprawy.options[9].disabled = true;
+			lista_konkretnej_oprawy.options[10].disabled = true;
+			lista_konkretnej_oprawy.options[11].disabled = true;
+			lista_konkretnej_oprawy.options[12].disabled = true;
+			lista_konkretnej_oprawy.options[14].disabled = true;
+			lista_konkretnej_oprawy.options[18].disabled = true;
+			lista_konkretnej_oprawy.options[20].disabled = true;
+			lista_konkretnej_oprawy.options[22].disabled = true;
+			lista_konkretnej_oprawy.options[24].disabled = true;
+			lista_konkretnej_oprawy.options[25].disabled = true;
+			lista_konkretnej_oprawy.options[26].disabled = true;
+			lista_konkretnej_oprawy.options[27].disabled = true;
+			lista_konkretnej_oprawy.options[29].disabled = true;
+			lista_konkretnej_oprawy.options[30].disabled = true;
+			lista_konkretnej_oprawy.options[31].disabled = true;
+			lista_konkretnej_oprawy.options[32].disabled = true;
+			lista_konkretnej_oprawy.options[33].disabled = true;
+			lista_konkretnej_oprawy.options[34].disabled = true;
+			lista_konkretnej_oprawy.options[35].disabled = true;
+		}
+		if(wybrano == 'Narozna')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==12 || i==18)
+				{
+				continue;
+				}
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Wpuszczana')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==4 || i==14 || i==20)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Naswietlacz')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==3 || i==22 || i==24|| i==25|| i==29|| i==30)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Bulkhead')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==8 || i==9 || i==10 || i==11)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Rurowa')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==36)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Agresywne')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==31)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		if(wybrano == 'Amoniak')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "pokazane";
+			var lista_konkretnej_oprawy = document.getElementById("wybor_konkretnej_oprawy");
+			//Show_all_lista_konkretnych_opraw();
+			for(i=1; i < lista_konkretnej_oprawy.options.length; i++)
+			{
+				if(i==32 || i==33 || i==34 || i==35)
+				{
+				continue;
+				}
+
+				lista_konkretnej_oprawy.options[i].disabled = true;
+			}
+		}
+		/*
+		if(wybrano =='default2')
+		{
+			var konkretna_oprawa2 = document.getElementById("2-oprawa");
+			konkretna_oprawa2.className = "ukryte";
+			//Show_all_lista_konkretnych_opraw()
+		}
+		*/
+		
+		//return typ_opraw;
+	}
+	function Selekcja_konkretnych_opraw(wybrano)
+	{
+		var disable_typ = document.getElementById("wybor_typu_oprawy");
+		disable_typ.setAttribute("disabled", true);
+		nazwa_oprawy = document.forms.formularz.elements["oprawa"].value;
+		if(wybrano == 'EXL210LED')
+		{
+			okablowanie="3";
+			var strumien_oprawy = document.getElementById("3-strumien");
+			strumien_oprawy.className = "pokazane";
+			
+			var wybor_strumienia = document.getElementById("wybor_strumienia");
+			for(i=1; i < wybor_strumienia.options.length; i++)
+			{
+				if(i==1 || i==2|| i==3|| i==4|| i==5)
+				{
+				wybor_strumienia.options[i].disabled = false;
+				}
+			}
+			var wybor_obudowy = document.getElementById("wybor_obudowy");
+			for(i=1; i < wybor_obudowy.options.length; i++)
+			{
+				if(i==3)
+				{
+				wybor_obudowy.options[i].disabled = false;
+				}
+			}
+			var wybor_klosza = document.getElementById("wybor_klosza");
+			for(i=1; i < wybor_klosza.options.length; i++)
+			{
+				if(i==3)
+				{
+				wybor_klosza.options[i].disabled = false;
+				}
+			}
+			var wybor_material_dlawnic = document.getElementById("wybor_materialu_dlawnic");
+			for(i=1; i < wybor_material_dlawnic.options.length; i++)
+			{
+				if(i==2 || i==3)
+				{
+				wybor_material_dlawnic.options[i].disabled = false;
+				}
+			}
+			var wybor_wersji_awaryjnej = document.getElementById("wybor_awaryjna");
+			for(i=1; i <  wybor_wersji_awaryjnej.options.length; i++)
+			{
+				if(i==2 || i==4 || i==7 || i==8 || i==5 || i==12)
+				{
+				 wybor_wersji_awaryjnej.options[i].disabled = false;
+				}
+			}
+			var wybor_ukladu_dlawnic = document.getElementById("wybor_ukladu_dlawnic");
+			for(i=1; i <  wybor_ukladu_dlawnic.options.length; i++)
+			{
+				if(i==1 || i==2 || i==3 || i==4)
+				{
+				 wybor_ukladu_dlawnic.options[i].disabled = false;
+				}
+			}
+			
+		}
+		if(wybrano == 'EXL310LED')
+		{
+			var strumien_oprawy = document.getElementById("3-strumien");
+			strumien_oprawy.className = "pokazane";
+				//do poprawki
+			var obudowa_oprawy = document.getElementById("4-obudowa");
+			obudowa_oprawy.className = "pokazane";
+			//ten fragment
+			var wybor_strumienia = document.getElementById("wybor_strumienia");
+			for(i=1; i < wybor_strumienia.options.length; i++)
+			{
+				if(i==2 || i==4|| i==5|| i==7)
+				{
+				wybor_strumienia.options[i].disabled = false;
+				}
+			}
+			var wybor_obudowy = document.getElementById("wybor_obudowy");
+			for(i=1; i < wybor_obudowy.options.length; i++)
+			{
+				if(i==1 || i==2)
+				{
+				wybor_obudowy.options[i].disabled = false;
+				}
+			}
+		}
+		//else
+		//{
+		//var strumien_oprawy = document.getElementById("3-strumien");
+		//	strumien_oprawy.className = "pokazane";
+		//}
+		
+		//return nazwa_oprawy;
+	}
+	function Selekcja_strumienia(wybrano)
+	{
+		
+		var obudowa_oprawy = document.getElementById("4-obudowa");
+		obudowa_oprawy.className = "pokazane";
+		strumien_oprawy = document.forms.formularz.elements["strumien"].value
+		//return strumien_oprawy;
+	}
+	function Selekcja_materialu_obudowy(wybrano)
+	{
+		var klosz_oprawy = document.getElementById("5-klosz");
+		klosz_oprawy.className = "pokazane";
+		obudowa_oprawy = document.forms.formularz.elements["obudowa"].value;
+		//return obudowa_oprawy;
+	}
+	function Selekcja_materialu_klosza(wybrano)
+	{
+		var material_dlawnic = document.getElementById("6-material-dlawnice");
+		material_dlawnic.className = "pokazane";
+		klosz_oprawy = document.forms.formularz.elements["klosz"].value;
+		//return klosz_oprawy;
+	}
+	function Selekcja_materialu_dlawnic(wybrano)
+	{
+		var wielkosc_dlawnic = document.getElementById("7-wielkosc-dlawnice");
+		wielkosc_dlawnic.className = "pokazane";
+		material_dlawnic = document.forms.formularz.elements["material-dlawnic"].value;
+		//return material_dlawnic;
+	}
+	function Selekcja_wielkosci_dlawnic(wybrano)
+	{
+		var awaryjna = document.getElementById("8-awaryjna");
+		awaryjna.className = "pokazane";
+		wielkosc_dlawnic = document.forms.formularz.elements["wielkosc-dlawnic"].value;
+		//return wielkosc_dlawnic;
+	}
+	function Selekcja_awaryjnosci(wybrano)
+	{
+		var przelot = document.getElementById("9-przelot");
+		przelot.className = "pokazane";
+		wersje_awaryjne = document.forms.formularz.elements["wersje_awaryjne"].value;
+		//return wersje_awaryjne;
+	}
+	function Selekcja_zasilania_oprawy(wybrano)
+	{
+			if(wybrano == "A3")
+		{
+			zasilanie_oprawy = "34E";
+			okablowanie="4";
+		}
+			if(wybrano == "ZB")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="3";
+		}
+			if(wybrano == "ZBT")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="6";
+		}
+			if(wybrano == "ZBC")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="3";
+		}
+			if(wybrano == "ZBS")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="5";
+		}
+			if(wybrano == "DA")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="5";
+		}
+		 	if(wybrano == "brak")
+		{
+			zasilanie_oprawy = "35E";
+			okablowanie="3";
+		}
+	}
+	function Selekcja_przelotu(wybrano)
+	{
+		var uklad_dlawnic = document.getElementById("10-uklad-dlawnic");
+		uklad_dlawnic.className = "pokazane";
+			if(wybrano == "TAK")
+		{
+			okablowanie=okablowanie + okablowanie;
+		}
+			if(wybrano == "NIE")
+		{
+			okablowanie=okablowanie + "0";
+		}
+	}
+	function Selekcja_ukladu_dlawnic(wybrano)
+	{
+		uklad_dlawnic = document.forms.formularz.elements["uklad-dlawnic"].value;
+		//return uklad_dlawnic;
+	}
+	function przeslij()
+	{
+	//document.getElementById("wynik").innerHTML = "dzial: " + Selekcja_działu_opraw() + " | typ: " + Selekcja_typu_opraw() + " | nazwa oprawy: " + Selekcja_konkretnych_opraw() + " | strumien oprawy: " + Selekcja_strumienia() + " | układ dławnic oprawy: " + Selekcja_ukladu_dlawnic()  + " | materiał dlawnic oprawy: " + Selekcja_materialu_dlawnic() + " | wielosc dlawnic oprawy: " + Selekcja_wielkosci_dlawnic() + " | obudowa oprawy: " + Selekcja_materialu_obudowy() + " | klosz oprawy: " + Selekcja_materialu_klosza() + " | wersja awaryjna oprawy: " + Selekcja_awaryjnosci() ;
+	document.getElementById("klucz").innerHTML = nazwa_oprawy + "-" + strumien_oprawy + "-" + zasilanie_oprawy + "-" + okablowanie + "-" + uklad_dlawnic + material_dlawnic + wielkosc_dlawnic + "-" + obudowa_oprawy + "-" + klosz_oprawy + "-" + wersje_awaryjne;
+}
+	function restart()
+	{
+		var disable_dzial = document.getElementById("wybor_dzialu_oprawy");
+		disable_dzial.setAttribute("enabled", true);
+		var disable_typ = document.getElementById("wybor_typu_oprawy");
+		disable_typ.setAttribute("disabled", false);
+	}
+</script>

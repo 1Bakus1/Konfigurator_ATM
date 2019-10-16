@@ -1,0 +1,522 @@
+<!--
+ * Konfigurator opraw ATM v.1.0
+ * @copyright Copyright 2019
+ * @author    Mateusz Bakun
+ * @link      mateusz@atmlighting.pl
+ *
+ * wszystkie prawa zastrzeżone // all rights reserved
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32244426-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-32244426-5');
+</script>
+
+
+<meta charset="utf-8">
+<title>Konfigurator opraw LED firmy ATM lighting</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="animate.css">
+<link rel="stylesheet" href="moje_style.css">
+
+
+
+</head>	
+	<p id="info-przegladarka"></p>
+	<img class="logo" src="Logo-z-tekstem-konfigurator.jpg" alt="KONFIGURATOR OPRAW LEDOWYCH">
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<form name="formularz" id="myform">
+	<div class="row">
+		<label class="col-sm-3 form-control-label">Dział opraw</label>
+		<div class="col-sm-8">
+			<select name="dzial"  class="form-control" id="wybor_dzialu_oprawy" onchange="Selekcja_działu_opraw(this.value)">
+				<option value="default">Proszę wybrać dział</option>
+				<option value="EX">Oprawy przeciwwybuchowe</option>
+				<option value="VANDAL">Oprawy wandaloodporne</option>
+				<option value="PRISON">Oprawy do więzień</option>
+				<option value="FACTORY">Oprawy do przemysłu i hal produkcyjnych</option>
+				<option value="FOOD">Oprawy do przemysłu spożywczego</option>
+			</select>
+		</div>
+		<div class="col-sm-1">
+			<img class="ikona" id="ikona" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="strefa-wybuchowa">
+		<!--<div class="ukryte" id="strefa-wybuchowa"> -->
+			<label class="col-sm-3 form-control-label">Strefa wybuchowa</label>
+				<div class="col-sm-8">
+					<select  name="strefa" class="form-control" id="wybor_strefy_wybuchowej" onchange="Selekcja_strefy_wybuchowej(this.value)">
+						<option value="default">Wybierz strefę przeciwybuchową</option>
+						<option value="pierwsza">Strefa 1 "II 2D" zagrożenia wybuchem</option>
+						<option value="dwudziestaPierwsza">Strefa 21 "II 2D" zagrożenia wybuchem</option>
+						<option value="druga">Strefa 2 "II 3G" zagrożenia wybuchem</option>
+						<option value="dwudziestaDruga">Strefa 22 "II 3D" zagrożenia wybuchem</option>
+					</select>
+				</div>
+		<div class="col-sm-1">
+			<img class="ikona" id="ikona-strefa" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="1-typ_oprawy">
+			<label class="col-sm-3 form-control-label">Typ oprawy</label>
+				<div class="col-sm-8">
+					<select   name="typ" class="form-control" id="wybor_typu_oprawy" onchange="Selekcja_typu_opraw(this.value)">
+						<option value="default">Wybierz typ oprawy</option>
+						<option value="Napowierzchniowa" disabled>Napowierzchniowa</option>
+						<option value="Narozna" disabled>Narożna</option>
+						<option value="Wpuszczana" disabled>Wpuszczana</option>
+						<option value="Naswietlacz" disabled>Naświetlacz</option>
+						<option value="Bulkhead" disabled>Bulkhead</option>
+						<option value="Rurowa" disabled>Rurowa</option>
+						<option value="Agresywne" disabled>Do agresywnych środowisk</option>
+						<option value="Amoniak" disabled>Do amoniaku</option>
+						<option value="Temp" disabled>Do ekstremalnych temperatur</option>
+					</select>
+				</div>	
+				
+	</div>
+	<div class="row ukryte" id="2-oprawa">
+		<label class="col-sm-3 form-control-label">Wybór oprawy</label>
+			<div class="col-sm-8">
+				<select name="oprawa" class="form-control"  id="wybor_konkretnej_oprawy" onchange="Selekcja_konkretnych_opraw(this.value)">
+					<option value="default">Proszę wybrać</option>
+					<option value="EXL210LED" disabled>EXL210LED - oprawa w obudowie z tworzywa PC z kloszem z tworzywa PC</option>
+					<option value="EXL310LED" disabled>EXL310LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="EXL380LED" disabled>EXL380LED - oprawa w metalowej obudowie z kloszem ze szkła</option>
+					<option value="EXL390LED" disabled>EXL390LED - oprawa w metalowej obudowie z kloszem ze szkła lub tworzywa PC</option>
+					<option value="EXF200LED" disabled>EXF200LED - oprawa w obudowie z tworzywa PC z kloszem z tworzywa PC</option>
+					<option value="EXF250LED" disabled>EXF250LED - oprawa w obudowie z tworzywa GRP z kloszem z tworzywa PC lub PM</option>
+					<option value="EXF300LED" disabled>EXF300LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="FLX310LED" disabled>FLX310LED - oprawa w aluminiowej obudowie z kloszem ze szkła</option>
+					<option value="PLFMLED" disabled>PLFMLED - oprawa w aluminiowej obudowie z kloszem ze szkła</option>
+					<option value="PLFSLED" disabled>PLFSLED - oprawa w aluminiowej obudowie z kloszem ze szkła</option>
+					<option value="040324LED" disabled>0403.24LED - oprawa w aluminiowej obudowie z kloszem ze szkła</option>
+					<option value="INV320LED" disabled>INV320LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INV320LEDSF" disabled>INV320LED-..-SF - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INV320LEDRC" disabled>INV320LED-..-RC - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INV360LED" disabled>INV360LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INS230" disabled>INS230 - oprawa w obudowie z tworzywa PC z kloszem z tworzywa PC</option>
+					<option value="INS340" disabled>INS340 - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INP320LED" disabled>INP320LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INP320LEDSF" disabled>INP320LED-..-SF - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INP320LEDRC" disabled>INP320LED-..-RC - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INP360LED" disabled>INP360LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="HPL425LED" disabled>HPL425LED - oprawa w metalowej obudowie z kloszem ze szkła lub tworzywa PC</option>
+					<option value="INS340LED" disabled>INS340LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INS370LED" disabled>INS370LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="HPL440LED" disabled>HPL440LED - oprawa w metalowej obudowie z kloszem ze szkła</option>
+					<option value="INX340LED" disabled>INX340LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INX230LED" disabled>INX230LED - oprawa w obudowie z tworzywa PC z kloszem z tworzywa PC</option>
+					<option value="INS230LED" disabled>INS230LED - oprawa w obudowie z tworzywa PC z kloszem z tworzywa PC</option>
+					<option value="HPL430LED" disabled>HPL430LED - oprawa w aluminiowej obudowie z kloszem ze szkła</option>
+					<option value="INS395LED" disabled>INS395LED - oprawa w metalowej obudowie z kloszem ze szkła</option>
+					<option value="INS350LED" disabled>INS350LED - oprawa w metalowej obudowie z kloszem ze szkła lub tworzywa PC</option>
+					<option value="INS250LED" disabled>INS250LED - oprawa w obudowie z tworzywa GRP z kloszem z tworzywa</option>
+					<option value="INS270LED" disabled>INS270LED - oprawa w obudowie z tworzywa GRP z kloszem z tworzywa PMMA</option>
+					<option value="INS310LED" disabled>INS310LED - oprawa w metalowej obudowie z kloszem z tworzywa PC</option>
+					<option value="INS360LED" disabled>INS360LED - oprawa w metalowej obudowie z kloszem ze szkła</option>
+					<option value="INS242LED" disabled>INS242LED - oprawa rurowa wykonana ze szkła borokrzemowego</option>
+				</select>
+				<div class="mini-podpis">*Aby stworzyć klucz dla innej oprawy kliknij przycisk "Rozpocznij od nowa" na dole strony</div>
+			</div>	
+	</div>
+					<div class="row ukryte" id="4-obudowa">
+			<label class="col-sm-3 form-control-label">Materiał Obudowy</label>
+				<div class="col-sm-8">
+					<select name="obudowa"  class="form-control" id="wybor_obudowy" onchange="Selekcja_materialu_obudowy(this.value)">
+						<option value="default">Wybierz materiał obudowy</option>
+						<option value="GS" disabled>Stal ocynkowana malowana proszkowo</option>
+						<option value="NIRO" disabled>Stal nierdzewna</option>
+						<option value="PC" disabled>Poliwęglan</option>
+						<option value="GRP" disabled>Poliester wzmacniany włóknem szklanym GRP</option>
+						<option value="BRS" disabled>Stal nierdzewna szczotkowana</option>
+						<option value="ALU" disabled>Odlew aluminiowy</option>
+						
+						
+					</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-obudowa" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="5-klosz">
+			<label class="col-sm-3 form-control-label">Materiał Klosza</label>
+				<div class="col-sm-8">
+					<select name="klosz"  class="form-control" id="wybor_klosza" onchange="Selekcja_materialu_klosza(this.value)">
+							<option value="default">Wybierz materiał klosza</option>
+							<option value="GL" disabled>Szyba hartowana</option>
+							<option value="SGL" disabled>Szyba hartowana safety-glass</option>
+							<option value="PC" disabled>Klosz z poliwęglanu PC</option>
+							<option value="PM" disabled>Klosz z polimetakrylanu metylu PMMA, gładka faktura (PM)</option>
+							<option value="PT" disabled>Klosz z polimetakrylanu metylu PMMA, "mrożony" (PT)</option>
+							<option value="BORO" disabled>Szkło borokrzemowe</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-klosz" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="3-strumien">
+	
+			<label class="col-sm-3 form-control-label">Strumień oprawy</label>
+				<div class="col-sm-8">
+					<select name="strumien"  class="form-control" id="wybor_strumienia" onchange="Selekcja_strumienia(this.value)">
+						<option value="default">Wybierz strumien oprawy</option>
+						<option value="0600-E2" disabled>2482 lm w wersji o długości ok 600mm</option>	<!--EXL210LED-->
+						<option value="0600-E4" disabled>4631 lm w wersji o długości ok 600mm</option>	
+						<option value="1200-E4" disabled>5550 lm w wersji o długości ok 1200mm</option>	
+						<option value="1200-E8" disabled>8512 lm w wersji o długości ok 1200mm</option>	
+						<option value="1500-E6" disabled>7031 lm  w wersji o długości ok 1500mm</option>	<!--EXL210LED-->
+						<option value="0600-E2" disabled>2775 lm w wersji o długości ok 600mm</option>	<!--EXL310LED-->
+						<option value="0600-E4" disabled>4715 lm w wersji o długości ok 600mm</option>
+						<option value="1200-E4" disabled>5390 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E8" disabled>7675 lm w wersji o długości ok 1200mm</option>	<!--EXL310LED-->
+						<option value="045-E4" disabled>6570 lm w wersji o długości ok 450mm</option>	<!--EXL380LED-->
+						<option value="090-E8" disabled>13244 lm w wersji o długości ok 900mm</option>
+						<option value="130-E12" disabled>19215 lm w wersji o długości ok 1200mm</option>	<!--EXL380LED-->
+						<option value="0600-E4-1" disabled>4636 lm w wersji o długości ok 600mm</option>		<!--EXL390LED-->
+						<option value="0600-E4-3" disabled>6265 lm w wersji o długości ok 600mm</option>
+						<option value="1200-E3-1" disabled>3160 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E3-3" disabled>4270 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E6-1" disabled>6445 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-E6-3" disabled>8710 lm w wersji o długości ok 1200mm</option>		<!--EXL390LED-->
+						<option value="0600-F1" disabled>2038 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>		<!--EXF200LED-->
+						<option value="0600-F2" disabled>3918 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-F2" disabled>3867 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-F4" disabled>7474 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-G4" disabled>4971 lm w wersji o długości ok 1200mm przy max temp pracy +55&deg;C</option>
+						<option value="0600-G2" disabled>2603 lm w wersji o długości ok 0600mm przy max temp pracy +60&deg;C</option>
+						<option value="1200-G2" disabled>2503 lm w wersji o długości ok 1200mm przy max temp pracy +60&deg;C</option>		<!--EXF200LED-->
+						<option value="0600-F1" disabled>1869 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>		<!--EXF250LED-->
+						<option value="0600-F2" disabled>3816 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-F2" disabled>4104 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-F4" disabled>7753 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-G4" disabled>4840 lm w wersji o długości ok 1200mm przy max temp pracy +55&deg;C</option>
+						<option value="0600-G2" disabled>2566 lm w wersji o długości ok 0600mm przy max temp pracy +60&deg;C</option>
+						<option value="1200-G2" disabled>2468 lm w wersji o długości ok 1200mm przy max temp pracy +60&deg;C</option>   <!--EXF250LED-->
+						<option value="0600-F1" disabled>2069 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>		<!--EXF300LED-->
+						<option value="0600-FX2" disabled>4326 lm w wersji o długości ok 0600mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-F2" disabled>4177 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-FX4" disabled>8692 lm w wersji o długości ok 1200mm przy max temp pracy +45&deg;C</option>
+						<option value="1200-GX4" disabled>5749 lm w wersji o długości ok 1200mm przy max temp pracy +55&deg;C</option>
+						<option value="0600-GX2" disabled>2882 lm w wersji o długości ok 0600mm przy max temp pracy +60&deg;C</option>
+						<option value="1200-G2" disabled>2661 lm w wersji o długości ok 1200mm przy max temp pracy +60&deg;C</option>		<!--EXF300LED-->
+						<option value="36" disabled>3600 lm w wersji o długości ok 475mm</option>		<!--FLX310LED-->
+						<option value="0600-J2-1" disabled>2103 lm w wersji o długości ok 0600mm</option>		<!--INV320LED-->
+						<option value="0600-J2-3" disabled>2933 lm w wersji o długości ok 0600mm</option>		
+						<option value="0600-B2-1" disabled>4281 lm w wersji o długości ok 0600mm</option>
+						<option value="0600-B2-2" disabled>4836 lm w wersji o długości ok 0600mm</option>
+						<option value="1200-J4-1" disabled>4173 lm w wersji o długości ok 1200mm</option>		
+						<option value="1200-J4-2" disabled>4715 lm w wersji o długości ok 1200mm</option>		
+						<option value="1200-J4-3" disabled>5755 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-B4-1" disabled>8721 lm w wersji o długości ok 1200mm</option>
+						<option value="1500-J4M2-1" disabled>5259 lm w wersji o długości ok 1500mm</option>		
+						<option value="1500-J4M2-2" disabled>6142 lm w wersji o długości ok 1500mm</option>		<!--INV320LED-->
+						<option value="0600-J2-1" disabled>2113 lm w wersji o długości ok 0600mm</option>		<!--INV320LED-SF-->
+						<option value="0600-J2-3" disabled>2857 lm w wersji o długości ok 0600mm</option>		
+						<option value="0600-B2-1" disabled>4171 lm w wersji o długości ok 0600mm</option>
+						<option value="0600-B2-2" disabled>4665 lm w wersji o długości ok 0600mm</option>
+						<option value="1200-J4-1" disabled>4420 lm w wersji o długości ok 1200mm</option>		
+						<option value="1200-J4-2" disabled>4990 lm w wersji o długości ok 1200mm</option>		
+						<option value="1200-J4-3" disabled>5921 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-B4-1" disabled>9037 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-B4-2" disabled>9853 lm w wersji o długości ok 1200mm</option>
+						<option value="1500-J4M2-1" disabled>5040 lm w wersji o długości ok 1500mm</option>		
+						<option value="1500-J4M2-3" disabled>7237 lm w wersji o długości ok 1500mm</option>		<!--INV320LED-SF-->
+						<option value="1200-J2-1" disabled>2140 lm w wersji o długości ok 1200mm i szerokości 150mm</option>		<!--INV320LED-RC-->
+						<option value="1200-J2-3" disabled>2766 lm w wersji o długości ok 1200mm i szerokości 150mm</option>		
+						<option value="1200-B2-1" disabled>4280 lm w wersji o długości ok 1200mm i szerokości 150mm</option>
+						<option value="0600-J2-1" disabled>2140 lm w wersji o długości ok 0600mm i szerokości 250mm</option>
+						<option value="0600-J2-3" disabled>2766 lm w wersji o długości ok 0600mm i szerokości 250mm</option>		
+						<option value="0600-B2-1" disabled>4280 lm w wersji o długości ok 0600mm i szerokości 250mm</option>		
+						<option value="1200-J4-1" disabled>4260 lm w wersji o długości ok 1200mm i szerokości 250mm</option>
+						<option value="1200-J4-3" disabled>5534 lm w wersji o długości ok 1200mm i szerokości 250mm</option>
+						<option value="1200-B4-2" disabled>9067 lm w wersji o długości ok 1200mm i szerokości 250mm</option>		<!--INV320LED-RC-->
+						<option value="0250-R2-1" disabled>558 lm w wersji o średnicy 250mm</option>		<!--INV360LED-->
+						<option value="0250-L2-1" disabled>744 lm w wersji o średnicy 250mm</option>
+						<option value="0250-L2-3" disabled>1026 lm w wersji o średnicy 250mm</option>		<!--INV360LED-->
+						<option value="207" disabled>1960 lm w wersji o długości ok 0600mm </option>		<!--INS230-->
+						<option value="216" disabled>4884 lm w wersji o długości ok 1200mm </option>
+						<option value="224" disabled>6410 lm w wersji o długości ok 1500mm </option>		<!--INS230-->
+						<option value="207" disabled>2020 lm w wersji o długości ok 0600mm </option>		<!--INS340-->
+						<option value="216" disabled>5030 lm w wersji o długości ok 1200mm </option>		<!--INS340-->
+						<option value="0600-D2-0" disabled>1720 lm w wersji o długości ok 0600mm zasilane stałym napięciem 24VDC</option>		<!--INP320LED-->
+						<option value="0600-D4-0" disabled>4592 lm w wersji o długości ok 0600mm zasilane stałym napięciem 24VDC </option>		
+						<option value="1200-D4-0" disabled>4592 lm w wersji o długości ok 1200mm zasilane stałym napięciem 24VDC </option>		
+						<option value="1200-D8-0" disabled>9184 lm w wersji o długości ok 1200mm zasilane stałym napięciem 24VDC </option>		<!--INP320LED-->
+						<option value="050" disabled>6345 lm o mocy około 50W</option>		<!--INV360LED-->
+						<option value="060" disabled>7685 lm o mocy około 60W</option>
+						<option value="080" disabled>9380 lm o mocy około 80W</option>		<!--INV360LED-->
+						<option value="0600-J2-1" disabled>2412 lm w wersji o długości ok 0600mm</option>		<!--INS340LED-->
+						<option value="0600-J2-3" disabled>3327 lm w wersji o długości ok 0600mm</option>		
+						<option value="1200-J4-1" disabled>4664 lm w wersji o długości ok 1200mm</option>				
+						<option value="1200-J4-3" disabled>6827 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-B4-1" disabled>9327 lm w wersji o długości ok 1200mm</option>		<!--INS340LED-->
+						<option value="1200-B4-1" disabled>8561 lm w wersji o długości ok 1200mm</option>		<!--INS370LED-->
+						<option value="1200-B8-1" disabled>17710 lm w wersji o długości ok 1200mm</option>		
+						<option value="1500-A2B4-0" disabled>6454 lm w wersji o długości ok 1500mm</option>				
+						<option value="1500-A2B4-1" disabled>10890 lm w wersji o długości ok 1500mm</option>
+						<option value="1500-A4B8-0" disabled>12908 lm w wersji o długości ok 1500mm</option>
+						<option value="1500-A4B8-1" disabled>21402 lm w wersji o długości ok 1500mm</option>		<!--INS370LED-->
+						<option value="090-H4" disabled>10524 lm w wersji do pracy przy max temp +60&deg;C</option>		<!--HPL440LED-->
+						<option value="130-H8" disabled>16606 lm w wersji do pracy przy max temp +60&deg;C</option>		
+						<option value="170-H8" disabled>20738 lm w wersji do pracy przy max temp +55&deg;C</option>				
+						<option value="250-H8" disabled>27402 lm w wersji do pracy przy max temp +40&deg;C</option>		<!--HPL440LED-->
+						<option value="0600-W1-0" disabled>1414 lm w wersji o długości ok 1200mm przy max temp pracy +75&deg;C</option>		<!--INX340LED-->
+						<option value="1200-W2-0" disabled>2830 lm w wersji o długości ok 1200mm przy max temp pracy +75&deg;C</option>		
+						<option value="0600-W1-1" disabled>2438 lm w wersji o długości ok 1200mm przy max temp pracy +70&deg;C</option>		
+						<option value="1200-W2-1" disabled>4875 lm w wersji o długości ok 1200mm przy max temp pracy +70&deg;C</option>		
+						<option value="0600-W1-2" disabled>4100 lm w wersji o długości ok 1500mm przy max temp pracy +60&deg;C</option>				
+						<option value="1200-W2-2" disabled>8200 lm w wersji o długości ok 1500mm przy max temp pracy +60&deg;C</option>
+						<option value="0600-W1-3" disabled>4380 lm w wersji o długości ok 1500mm przy max temp pracy +50&deg;C</option>
+						<option value="1200-W2-3" disabled>8755 lm w wersji o długości ok 1500mm przy max temp pracy +50&deg;C</option>		
+						<option value="0600-Y2-3" disabled>3327 lm w wersji o długości ok 0600mm przy min temp pracy -40&deg;C</option>		
+						<option value="0600-X2-1" disabled>4816 lm w wersji o długości ok 0600mm przy min temp pracy -40&deg;C</option>		
+						<option value="1200-Y4-2" disabled>5138 lm w wersji o długości ok 1200mm przy min temp pracy -40&deg;C</option>				
+						<option value="1200-Y4-3" disabled>6827 lm w wersji o długości ok 1200mm przy min temp pracy -40&deg;C</option>		<!--INX340LED-->
+						<option value="0600-W1-0" disabled>1556 lm w wersji o długości ok 1200mm przy max temp pracy +70&deg;C</option>		<!--INX230LED-->
+						<option value="1200-W2-0" disabled>3112 lm w wersji o długości ok 1200mm przy max temp pracy +70&deg;C</option>		
+						<option value="0600-W1-1" disabled>2713 lm w wersji o długości ok 1200mm przy max temp pracy +65&deg;C</option>		
+						<option value="1200-W2-1" disabled>5500 lm w wersji o długości ok 1200mm przy max temp pracy +65&deg;C</option>		
+						<option value="0600-W1-2" disabled>4645 lm w wersji o długości ok 1500mm przy max temp pracy +50&deg;C</option>				
+						<option value="1200-W2-2" disabled>9351 lm w wersji o długości ok 1500mm przy max temp pracy +50&deg;C</option>		
+						<option value="0600-Y2-3" disabled>3188 lm w wersji o długości ok 0600mm przy min temp pracy -40&deg;C</option>		
+						<option value="0600-X2-1" disabled>4816 lm w wersji o długości ok 0600mm przy min temp pracy -40&deg;C</option>		
+						<option value="1200-Y4-2" disabled>5138 lm w wersji o długości ok 1200mm przy min temp pracy -40&deg;C</option>				
+						<option value="1200-Y4-3" disabled>6827 lm w wersji o długości ok 1200mm przy min temp pracy -40&deg;C</option>		<!--INX230LED-->
+						<option value="0600-J2-1" disabled>2365 lm w wersji o długości ok 0600mm</option>		<!--INS230LED-->
+						<option value="0600-J2-3" disabled>3188 lm w wersji o długości ok 0600mm</option>		
+						<option value="1200-J4-1" disabled>4787 lm w wersji o długości ok 1200mm</option>				
+						<option value="1200-J4-3" disabled>6566 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-B4-1" disabled>9797 lm w wersji o długości ok 1200mm</option>		<!--INS230LED-->
+						<option value="050" disabled>6698 lm o mocy około 50W</option>		<!--HPL430LED-->
+						<option value="100" disabled>11762 lm o mocy około 100W</option>
+						<option value="150" disabled>19785 lm o mocy około 150W</option>		<!--HPL430LED-->
+						<option value="1200-B4-1" disabled>9553 lm w wersji o długości ok 1200mm optyka szerokostrumieniowa</option>		<!--INS395LED-->
+						<option value="1200-B8-1" disabled>16784 lm w wersji o długości ok 1200mm optyka szerokostrumieniowa</option>		
+						<option value="1500-A2B4-1" disabled>10464 lm w wersji o długości ok 1500mm optyka szerokostrumieniowa</option>				
+						<option value="1500-A4B8-1" disabled>20934 lm w wersji o długości ok 1500mm optyka szerokostrumieniowa</option>
+						<option value="1200-B4-1" disabled>9845 lm w wersji o długości ok 1200mm optyka wąskostrumieniowa</option>	
+						<option value="1200-B8-1" disabled>18026 lm w wersji o długości ok 1200mm optyka wąskostrumieniowa</option>		
+						<option value="1500-A2B4-1" disabled>11438 lm w wersji o długości ok 1500mm optyka wąskostrumieniowa</option>				
+						<option value="1500-A4B8-1" disabled>23172 lm w wersji o długości ok 1500mm optyka wąskostrumieniowa</option>		<!--INS395LED-->
+						<option value="0600-J2-1" disabled>2274 lm w wersji o długości ok 0600mm</option>		<!--INS350LED-->
+						<option value="0600-J2-3" disabled>3168 lm w wersji o długości ok 0600mm</option>		
+						<option value="1200-J4-1" disabled>4906 lm w wersji o długości ok 1200mm</option>				
+						<option value="1200-J4-3" disabled>6387 lm w wersji o długości ok 1200mm</option>		<!--INS350LED-->
+						<option value="1200-J2-1" disabled>2274 lm w wersji o długości ok 1200mm i szerokości 100mm</option>		<!--INS270LED-->
+						<option value="1200-J2-3" disabled>3136 lm w wersji o długości ok 1200mm i szerokości 100mm</option>		
+						<option value="1200-J4-1" disabled>4548 lm w wersji o długości ok 1200mm i szerokości 150mm</option>
+						<option value="1200-J4-3" disabled>6271 lm w wersji o długości ok 1200mm i szerokości 150mm</option>	
+						<option value="1200-B4-1" disabled>9096 lm w wersji o długości ok 1200mm i szerokości 150mm</option>		<!--INS270LED-->
+						<option value="0600-J2-1" disabled>2250 lm w wersji o długości ok 0600mm</option>		<!--INS310LED-->
+						<option value="0600-J2-3" disabled>3103 lm w wersji o długości ok 0600mm</option>		
+						<option value="1200-J4-1" disabled>4644 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-J4-3" disabled>6155 lm w wersji o długości ok 1200mm</option>	
+						<option value="1200-B4-1" disabled>10084 lm w wersji o długości ok 1200mm</option>		<!--INS310LED-->
+						<option value="0600-J2-1" disabled>2276 lm w wersji o długości ok 0600mm</option>		<!--INS360LED-->
+						<option value="0600-J2-3" disabled>3136 lm w wersji o długości ok 0600mm</option>		
+						<option value="1200-J4-1" disabled>3885 lm w wersji o długości ok 1200mm</option>
+						<option value="1200-J4-3" disabled>5212 lm w wersji o długości ok 1200mm</option>		<!--INS360LED-->
+						<option value="20-LED" disabled>1300 lm ze źródła w postaci modułów LED</option>       <!--PLFMLED-->
+						<option value="100/3" disabled>1055 lm ze źródła E27 LED</option>       <!--PLFMLED-->
+						<option value="50 LED-1" disabled>5950 lm o mocy 35W</option>       <!--PLFSLED-->
+						<option value="50LED-2" disabled>8500 lm o mocy 50W</option>       
+						<option value="50LED-3" disabled>10200 lm o mocy 60W</option>       
+						<option value="50LED-3" disabled>13600 lm o mocy 80W</option>       <!--PLFSLED-->
+						<option value="20-1" disabled>2000 lm o mocy 20W</option>       <!--PLFSLED-->
+						<option value="1200-B4-1" disabled>7921 lm w wersji o długości ok 1200mm</option>		<!--INS350LED-->
+					</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-strumien" src="" alt="">
+		</div>
+	</div>
+	
+	<div class="row ukryte" id="6-material-dlawnice">
+			<label class="col-sm-3 form-control-label">Rodzaj dławnic</label>
+				<div class="col-sm-8">
+					<select name="material-dlawnic"  class="form-control" id="wybor_materialu_dlawnic" onchange="Selekcja_materialu_dlawnic(this.value)">
+							<option value="default">Wybierz rodzaj dławnic</option>
+							<option value="PCI" disabled>Przepusty gumowe</option>
+							<option value="P" disabled>Dławnice plastikowe</option>
+							<option value="M" disabled>Dławnice metalowe</option>
+							<option value="RST" disabled>Złącze RST</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-material-dlawnic" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="7-wielkosc-dlawnice">
+			<label class="col-sm-3 form-control-label">Wielkość dławnic</label>
+				<div class="col-sm-8">
+					<select name="wielkosc-dlawnic"  class="form-control" id="wybor_wielkosci_dlawnic" onchange="Selekcja_wielkosci_dlawnic(this.value)">
+							<option value="default">Wybierz wielkość dławnic</option>
+							<option value="20">Średnica 20mm</option>
+							<option value="25">Średnica 25mm</option>
+							<option value="przepust" disabled>Przepusty o średnicy 20mm</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-wielkosc-dlawnic" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="8-awaryjna">
+			<label class="col-sm-3 form-control-label">Wersje awaryjne / dali</label>
+				<div class="col-sm-8">
+					<select name="wersje_awaryjne"  class="form-control" id="wybor_awaryjna" onchange="Selekcja_zasilania_oprawy(this.value); Selekcja_awaryjnosci(this.value); ">
+							<option value="default">Wybierz rodzaj pracy awaryjnej /dali</option>
+							<option value="brak">Oprawa standardowa - bez układu awaryjnego</option>
+							<option value="-A3" disabled>Wersja A3 - praca awaryjna 3 godzinna</option>
+							<option value="-A3S" disabled>Wersja A3S - praca awaryjna 1 godzinna do ujemnych temp.</option>
+							<option value="-ZB" disabled>Wersja ZB - do pracy z centralną baterią</option>
+							<option value="-ZBS" disabled>Wersja ZBS - do pracy z centralną baterią firmy ES-SYSTEM</option>
+							<option value="-ZBH" disabled>Wersja ZBH - do pracy z centralną baterią firmy HYBRYD</option>
+							<option value="-ZBT" disabled>Wersja ZBT - do pracy z centralną baterią firmy TM-TECHNOLOGIE</option>
+							<option value="-ZBC" disabled>Wersja ZBC - do pracy z centralną baterią firmy CEAG</option>
+							<option value="-ZBD" disabled>Wersja ZBD - do pracy z centralną baterią firmy CEAG</option>
+							<option value="-ZBR" disabled>Wersja ZBR - do pracy z centralną baterią firmy RP TECHNIK</option>
+							<option value="-ZBM" disabled>Wersja ZBM - do pracy z centralną baterią firmy A&M MICHALOWSKI</option>
+							<option value="-DALI" disabled>Wersja DA - do pracy DALI</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-awaryjnosc" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="9-przelot">
+			<label class="col-sm-3 form-control-label">Przelot*</label>
+				<div class="col-sm-8">
+					<select name="przelot"  class="form-control" id="wybor_przelot" onchange="Selekcja_przelotu(this.value)">
+							<option value="default">Wybierz czy oprawa ma być wykonana w wersji przelotowej</option>
+							<option value="TAK">TAK</option>
+							<option value="NIE">NIE</option>
+						</select>
+						<div class="mini-podpis">*Aby ponownie odblokować wybór przelotu należy zmienić pole wersje awaryjne/dali</div>
+				</div>
+		</div>
+	<div class="row ukryte" id="10-uklad-dlawnic">
+			<label class="col-sm-3 form-control-label">Wybór układu dławnic</label>
+				<div class="col-sm-8">
+					<select name="uklad-dlawnic"  class="form-control" id="wybor_ukladu_dlawnic" onchange="Selekcja_ukladu_dlawnic(this.value)">
+							<option value="default">Wybierz układ dławnic</option>
+							<option value="10">Jeden wpust kablowy po jednej stronie - 10</option>
+							<option value="11" disabled>Jeden wpust kablowy po obu stronach - 11</option>
+							<option value="20" disabled>Dwa wpusty kablowe po jednej stronie - 20</option>
+							<option value="21" disabled>Dwa wpusty kablowe po jednej i jeden po drugiej stronie - 21</option>
+							<option value="22" disabled>Dwa wpusty kablowe po obu stronach - 22</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-uklad-dlawnic" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="11-mocowanie">
+			<label class="col-sm-3 form-control-label">Wybór mocowania</label>
+				<div class="col-sm-8">
+					<select name="mocowanie"  class="form-control" id="wybor_mocowania" onchange="Selekcja_mocowania(this.value)">
+							<option value="default">Wybierz mocowanie</option>
+							<option value="-AMO1" disabled>AMO1 - Standardowy uchwyt mocujący ze stali o grubości 1.5mm o rozstawie otworów 160mm</option>
+							<option value="-AMO3" disabled>AMO3 - Nierdzewna obejma na rurę</option>
+							<option value="-AMO4" disabled>AMO4 - Wspornik do montażu oprawy pod kątem 45 stopni</option>
+							<option value="-AMO5" disabled>AMO5 - Wspornik dystansowy o wysokości 68mm</option>
+							<option value="-BK" disabled> BK - Oprawa wyposażona w dwa zestawy montażowe przeznaczone do mocowania bezpośredniego do podłoża </option>
+							<option value="-WspornikEXL380LED" disabled>Nierdzewny Wspornik nastawny</option>
+							<option value="-WspornikEXL310LED" disabled>Nierdzewny wspornik do bezpośredniego mocowania do ściany</option>
+							<option value="-WspornikEXL390LED-SF" disabled>Wersja napowierzchniowa montowana za pomocą otworów bezpośrednio do sufitu</option>
+							<option value="-WspornikEXL390LED-RC" disabled>Wersja wpuszczana montowana do sufitu kasetonowego</option>
+							<option value="-WspornikINV320LED" disabled>Montaż bezpośrednio do ściany za pomocą otworów montażowych</option>
+							<option value="-WspornikINV320LEDRC" disabled>Montaż w ścianie, ramka maskująca otwór montażowy</option>
+							<option value="-WspornikHPL425LED" disabled>Wspornik umożliwiający zamocowanie oprawy na ścianie jak i suficie</option>
+							<option value="-AMO2" disabled>AMO2 - zawiesie oczkowe do mocowania oprawy na lince</option>
+							<option value="-AMO10" disabled>AMO10 - wibroizolacyjny wspornik montażowy</option>
+							<option value="-WspornikINS370LED" disabled>Wspornik umożliwiający zamocowanie oprawy bezpośrednio do podłoża</option>
+							<option value="-AMO7" disabled>AMO7 - nastawny nierdzewny wspornik</option>
+							<option value="-AMO8" disabled>AMO8 - zawiesie do linki stalowej z płynną regulacją długości</option>
+							<option value="-AMO6" disabled>AMO6 - spawany, nierdzewny wspornik montażowy o średnicy otworów fi9mm i rozstawie 60mm oraz 85mm</option>
+							<option value="-AMO16" disabled>AMO16 - uchwyt typu U-bolt do montażu na rurach.</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-mocowanie" src="" alt="">
+		</div>
+	</div>
+	<div class="row ukryte" id="12-dodatkowa">
+			<label class="col-sm-3 form-control-label">Wybór wyposażenia dodatkowego</label>
+				<div class="col-sm-8">
+					<select name="wyposazenie-dodatkowe"  class="form-control" id="wybor_wyposazenia_dodatkowego" onchange="Selekcja_wyposazenia_dodatkowego(this.value)">
+							<option value="default">Wybierz dodatkowe wyposażenie</option>
+							<option value="normal" disabled>Oprawa standardowa</option>
+							<option value="-HM" disabled>Oprawa w wykonaniu half-moon</option>
+							<option value="-SNS" disabled>Oprawa z sensorem</option>
+							<option value="-NL" disabled>Oprawa z dodatkowym układem night-light</option>
+							<option value="-VP" disabled>Oprawa wibroodporna</option>
+							<option value="-II" disabled> Oprawa w drugiej klasie ochronności</option>
+						</select>
+				</div>
+				<div class="col-sm-1">
+			<img class="ikona" id="ikona-wyposazenie-dodatkowe" src="" alt="">
+		</div>
+	</div>
+				</form>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="row" id="gallery2">
+			<img class="zdjecie" id="obrazek" src="dzialy_1.jpg" alt="obrazek">
+					</div>
+				<div class="row">
+			<div class="linki" id="linki"></div>
+					</div>
+			</div>
+		</div>
+		<button disabled id="oblicz-button" class="btn btn-info" onclick="przeslij(); kopiuj();">Wygeneruj kod produktu</button>
+		<button class="btn btn-danger" onclick="restart()">Rozpocznij od nowa</button>
+	<div id="wynik"></div>
+		<div id="wynikiDoUkrycia" class="ukryte">
+	<div class="wyswietl-wynik" id="klucz"></div>
+	<button class="btn btn-secondary ukryte" id="kopiuj" onclick="kopiuj()">Kopiuj do schowka</button>
+	<button class="btn btn-success ukryte" id="wyslijEmail" onclick="wyslijEmail()">Wyślij e-mail z zapytaniem</button>
+			</div>
+	
+	</div>
+	
+	
+	<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+</div>
+<script src="konfigurator.js"></script>
+</body>
+	<!--
+	<footer>
+		Autor: <address>Mateusz Bakun mateusz@atmlighting.pl)</address>
+		<p>wszelkie prawa zastrzeżone</p>
+	</footer>
+	-->
+	
+
+</html>
